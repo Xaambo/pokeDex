@@ -16,6 +16,13 @@ public class MainActivity extends AppCompatActivity {
                                  new Pokemon("Charmander", "Mar llamas", "Fuego", "No tiene", "No tiene", "Charmeleon")
                                  };
 
+    private int[] imgs = new int[] {
+                         R.drawable.ic_bulbasaur,
+                         R.drawable.ic_ivysaur,
+                         R.drawable.ic_venusaur,
+                         R.drawable.ic_charmander
+                         };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
