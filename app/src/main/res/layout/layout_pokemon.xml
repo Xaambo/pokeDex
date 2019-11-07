@@ -11,7 +11,7 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:id="@+id/lvIcon"
+            android:id="@+id/ivIcon"
             android:layout_width="57dp"
             android:layout_height="77dp"
             android:src="@drawable/ic_bulbasaur" />
@@ -22,25 +22,25 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/lvNom"
+                android:id="@+id/tvNom"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="nom" />
 
             <TextView
-                android:id="@+id/lvTipo1"
+                android:id="@+id/tvTipo1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="tipo1" />
 
             <TextView
-                android:id="@+id/lvTipo2"
+                android:id="@+id/tvTipo2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="tipo2" />
 
             <TextView
-                android:id="@+id/lvHabilitat"
+                android:id="@+id/tvHabilitat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="habilidad" />
