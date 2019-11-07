@@ -32,8 +32,8 @@ class AdaptadorPokemons extends ArrayAdapter<Pokemon> {
         TextView tvTipo2 = item.findViewById(R.id.tvTipo2);
         tvTipo2.setText(pokemon.getTipo2());
 
-        TextView tvtvHabilitat = item.findViewById(R.id.tvHabilitat);
-        tvtvHabilitat.setText(pokemon.getHabilidad());
+        TextView tvHabilitat = item.findViewById(R.id.tvHabilitat);
+        tvHabilitat.setText(pokemon.getHabilidad());
 
         return(item);
     }
