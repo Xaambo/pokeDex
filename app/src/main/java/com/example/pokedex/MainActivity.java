@@ -2,7 +2,10 @@ package com.example.pokedex;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 public class MainActivity extends AppCompatActivity {
@@ -16,13 +19,6 @@ public class MainActivity extends AppCompatActivity {
                                  new Pokemon("Charmander", "Mar llamas", "Fuego", "No tiene", R.drawable.ic_charmander, "No tiene", "Charmeleon")
                                  };
 
-    private int[] imgs = new int[] {
-                         R.drawable.ic_bulbasaur,
-                         R.drawable.ic_ivysaur,
-                         R.drawable.ic_venusaur,
-                         R.drawable.ic_charmander
-                         };
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,8 +26,36 @@ public class MainActivity extends AppCompatActivity {
 
         AdaptadorPokemons adaptador = new AdaptadorPokemons(this, Pokemons);
 
+        setTitle("PokéDex");
+
         // Assignem al listview l'adaptador creat
-        ListView lst = (ListView)findViewById(R.id.lvPokemon);
+        ListView lst = findViewById(R.id.lvPokemon);
         lst.setAdapter(adaptador);
+
+        lst.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> a, View v, int position, long id) {
+
+                // Agafem l'objecte associat, en aquest cas l'objecte es un STRING
+                Pokemon opcionSeleccionada = (Pokemon) a.getItemAtPosition(position);
+
+                // Fel que toqui en aquest cast fer un Toast cutre.
+                detailPokemon(opcionSeleccionada);
+
+            }
+        });
+    }
+
+    private void detailPokemon(Pokemon opcioSeleccionada) {
+        Intent i = new Intent(this, DetailPokemon.class);
+
+        i.putExtra("nom", opcioSeleccionada.getNom());
+        i.putExtra("habilitat", opcioSeleccionada.getHabilidad());
+        i.putExtra("tipo1", opcioSeleccionada.getTipo1());
+        i.putExtra("tipo2", opcioSeleccionada.getTipo2());
+        i.putExtra("foto", opcioSeleccionada.getFoto());
+        i.putExtra("anteEvo", opcioSeleccionada.getAnteEvo());
+        i.putExtra("proxEvo", opcioSeleccionada.getProxEvo());
+
+        startActivity(i);
     }
 }
