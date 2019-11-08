@@ -12,8 +12,10 @@
 
         <ImageView
             android:id="@+id/ivIcon"
-            android:layout_width="57dp"
-            android:layout_height="77dp"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
             android:src="@drawable/ic_bulbasaur" />
 
         <LinearLayout

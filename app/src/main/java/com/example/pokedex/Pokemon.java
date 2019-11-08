@@ -6,15 +6,17 @@ public class Pokemon {
     private String habilidad;
     private String tipo1;
     private String tipo2;
+    private int foto;
     private String anteEvo;
     private String proxEvo;
 
-    public Pokemon (String nom, String habilidad, String tipo1, String tipo2, String anteEvo, String proxEvo) {
+    public Pokemon (String nom, String habilidad, String tipo1, String tipo2, int foto, String anteEvo, String proxEvo) {
 
         this.nom = nom;
         this.habilidad = habilidad;
         this.tipo1 = tipo1;
         this.tipo2 = tipo2;
+        this.foto = foto;
         this.anteEvo = anteEvo;
         this.proxEvo = proxEvo;
 
@@ -50,6 +52,14 @@ public class Pokemon {
 
     public void setTipo2(String tipo2) {
         this.tipo2 = tipo2;
+    }
+
+    public int getFoto() {
+        return foto;
+    }
+
+    public void setFoto(int foto) {
+        this.foto = foto;
     }
 
     public String getAnteEvo() {
