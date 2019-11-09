@@ -5,8 +5,9 @@ public class Tipo {
     private String nom;
     private int foto;
 
-    public void Tipo(int foto) {
+    public Tipo(String nom, int foto) {
 
+        this.nom = nom;
         this.foto = foto;
 
     }

@@ -29,9 +29,9 @@ class AdaptadorPokemons extends ArrayAdapter<Pokemon> {
         tvNom.setText(pokemon.getNom());
 
         TextView tvTipo1 = item.findViewById(R.id.tvTipo1);
-        tvTipo1.setText(pokemon.getTipo1());
+        tvTipo1.setText(pokemon.getTipo1().getNom());
 
-        tipo2 = pokemon.getTipo2();
+        tipo2 = pokemon.getTipo2().getNom();
 
         if (tipo2 != null) {
 
