@@ -22,6 +22,18 @@ public class Pokemon {
 
     }
 
+    public Pokemon (String nom, String habilidad, String tipo1, int foto, String anteEvo, String proxEvo) {
+
+        this.nom = nom;
+        this.habilidad = habilidad;
+        this.tipo1 = tipo1;
+        this.tipo2 = null;
+        this.foto = foto;
+        this.anteEvo = anteEvo;
+        this.proxEvo = proxEvo;
+
+    }
+
     public String getNom() {
         return nom;
     }

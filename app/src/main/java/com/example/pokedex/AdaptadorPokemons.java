@@ -18,6 +18,8 @@ class AdaptadorPokemons extends ArrayAdapter<Pokemon> {
         LayoutInflater inflater = LayoutInflater.from(getContext());
         View item = inflater.inflate(R.layout.layout_pokemon, null);
 
+        String tipo2;
+
         Pokemon pokemon = getItem(position);
 
         ImageView ivIcon = item.findViewById(R.id.ivIcon);
@@ -29,8 +31,19 @@ class AdaptadorPokemons extends ArrayAdapter<Pokemon> {
         TextView tvTipo1 = item.findViewById(R.id.tvTipo1);
         tvTipo1.setText(pokemon.getTipo1());
 
-        TextView tvTipo2 = item.findViewById(R.id.tvTipo2);
-        tvTipo2.setText(pokemon.getTipo2());
+        tipo2 = pokemon.getTipo2();
+
+        if (tipo2 != null) {
+
+            TextView tvTipo2 = item.findViewById(R.id.tvTipo2);
+            tvTipo2.setText(tipo2);
+
+        } else {
+
+            TextView tvTipo2 = item.findViewById(R.id.tvTipo2);
+            tvTipo2.setVisibility(View.GONE);
+
+        }
 
         TextView tvHabilitat = item.findViewById(R.id.tvHabilitat);
         tvHabilitat.setText(pokemon.getHabilidad());

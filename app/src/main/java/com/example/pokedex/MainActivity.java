@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
                                  new Pokemon("Bulbasaur", "Espesura", "Planta", "Veneno", R.drawable.ic_bulbasaur, "No tiene", "Ivysaur"),
                                  new Pokemon("Inysaur", "Espesura", "Planta", "Veneno", R.drawable.ic_ivysaur, "Bulbasaur", "Venusaur"),
                                  new Pokemon("Venusaur", "Espesura", "Planta", "Veneno", R.drawable.ic_venusaur, "Inysaur", "No tiene"),
-                                 new Pokemon("Charmander", "Mar llamas", "Fuego", "No tiene", R.drawable.ic_charmander, "No tiene", "Charmeleon")
+                                 new Pokemon("Charmander", "Mar llamas", "Fuego", R.drawable.ic_charmander, "No tiene", "Charmeleon")
                                  };
 
     @Override
@@ -48,10 +48,24 @@ public class MainActivity extends AppCompatActivity {
     private void detailPokemon(Pokemon opcioSeleccionada) {
         Intent i = new Intent(this, DetailPokemon.class);
 
+        String tipo2;
+
         i.putExtra("nom", opcioSeleccionada.getNom());
         i.putExtra("habilitat", opcioSeleccionada.getHabilidad());
         i.putExtra("tipo1", opcioSeleccionada.getTipo1());
-        i.putExtra("tipo2", opcioSeleccionada.getTipo2());
+
+        tipo2 = opcioSeleccionada.getTipo2();
+
+        if (tipo2 != null) {
+
+            i.putExtra("tipo2", tipo2);
+
+        } else {
+
+            i.putExtra("tipo2", "");
+
+        }
+
         i.putExtra("foto", opcioSeleccionada.getFoto());
         i.putExtra("anteEvo", opcioSeleccionada.getAnteEvo());
         i.putExtra("proxEvo", opcioSeleccionada.getProxEvo());
