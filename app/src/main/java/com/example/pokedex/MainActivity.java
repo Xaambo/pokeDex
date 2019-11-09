@@ -8,9 +8,13 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     private AdaptadorPokemons adaptador;
+
+
 
     private Pokemon[] Pokemons = new Pokemon[]{
                                  new Pokemon("Bulbasaur", "Espesura", "Planta", "Veneno", R.drawable.ic_bulbasaur, "No tiene", "Ivysaur"),
