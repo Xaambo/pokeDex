@@ -31,13 +31,11 @@
     android:orientation="vertical"
     android:gravity="center">
 
-        <TextView
-            android:id="@+id/tvTipo1"
-            android:layout_width="match_parent"
+        <ImageView
+            android:id="@+id/ivTipo1"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:text="tipo1"
-            android:textColor="#000000" />
+            android:src="" />
 
         <TextView
             android:id="@+id/tvTipo2"
