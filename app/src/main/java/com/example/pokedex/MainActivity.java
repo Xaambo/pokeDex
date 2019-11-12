@@ -8,17 +8,15 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import java.util.ArrayList;
-
 public class MainActivity extends AppCompatActivity {
 
     private AdaptadorPokemons adaptador;
 
     private Tipo[] Tipos = new Tipo[] {
-                           new Tipo("Agua", R.drawable.Tipo_agua),
+                           new Tipo("Agua", R.drawable.tipo_agua),
                            new Tipo("Fuego", R.drawable.fuego_tipo),
-                           new Tipo("Planta", R.drawable.Tipo_planta),
-                           new Tipo("Veneno", R.drawable.Tipo_veneno)
+                           new Tipo("Planta", R.drawable.tipo_planta),
+                           new Tipo("Veneno", R.drawable.tipo_veneno)
                            };
 
     private Pokemon[] Pokemons = new Pokemon[]{
