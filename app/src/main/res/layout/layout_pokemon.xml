@@ -35,15 +35,13 @@
             android:id="@+id/ivTipo1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/fuego_tipo" />
+            android:src="@drawable/tipo_planta" />
 
-        <TextView
-            android:id="@+id/tvTipo2"
-            android:layout_width="match_parent"
+        <ImageView
+            android:id="@+id/ivTipo2"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:text="tipo2"
-            android:textColor="#000000" />
+            android:src="@drawable/tipo_veneno" />
 
         <TextView
             android:id="@+id/tvHabilitat"

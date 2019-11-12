@@ -18,7 +18,7 @@ class AdaptadorPokemons extends ArrayAdapter<Pokemon> {
         LayoutInflater inflater = LayoutInflater.from(getContext());
         View item = inflater.inflate(R.layout.layout_pokemon, null);
 
-        String tipo2;
+        Tipo tipo2;
 
         Pokemon pokemon = getItem(position);
 
@@ -31,12 +31,12 @@ class AdaptadorPokemons extends ArrayAdapter<Pokemon> {
         ImageView ivTipo1 = item.findViewById(R.id.ivTipo1);
         ivTipo1.setImageResource(pokemon.getTipo1().getFoto());
 
-        tipo2 = pokemon.getTipo2().getNom();
+        tipo2 = pokemon.getTipo2();
 
         if (tipo2 != null) {
 
-            TextView tvTipo2 = item.findViewById(R.id.tvTipo2);
-            tvTipo2.setText(tipo2);
+            ImageView tvTipo2 = item.findViewById(R.id.ivTipo2);
+            tvTipo2.setText("tipo2");
 
         } else {
 
