@@ -35,8 +35,8 @@ class AdaptadorPokemons extends ArrayAdapter<Pokemon> {
 
         if (tipo2 != null) {
 
-            ImageView tvTipo2 = item.findViewById(R.id.ivTipo2);
-            tvTipo2.setText("tipo2");
+            ImageView ivTipo2 = item.findViewById(R.id.);
+            ivTipo2.setImageResource(pokemon.getTipo2().getFoto());
 
         } else {
 
