@@ -35,7 +35,7 @@
             android:id="@+id/ivTipo1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="" />
+            android:src="@drawable/fuego_tipo" />
 
         <TextView
             android:id="@+id/tvTipo2"

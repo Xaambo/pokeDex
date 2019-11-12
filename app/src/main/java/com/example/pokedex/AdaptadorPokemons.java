@@ -28,8 +28,8 @@ class AdaptadorPokemons extends ArrayAdapter<Pokemon> {
         TextView tvNom = item.findViewById(R.id.tvNom);
         tvNom.setText(pokemon.getNom());
 
-        TextView tvTipo1 = item.findViewById(R.id.tvTipo1);
-        tvTipo1.setText(pokemon.getTipo1().getNom());
+        ImageView ivTipo1 = item.findViewById(R.id.ivTipo1);
+        ivTipo1.setImageResource(pokemon.getTipo1().getFoto());
 
         tipo2 = pokemon.getTipo2().getNom();
 

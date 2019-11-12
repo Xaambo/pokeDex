@@ -16,8 +16,8 @@ public class MainActivity extends AppCompatActivity {
 
     private Tipo[] Tipos = new Tipo[] {
                            new Tipo("Agua", 1),
-                           new Tipo("Fuego", 1),
-                           new Tipo("Planta", 1),
+                           new Tipo("Fuego", R.drawable.fuego_tipo),
+                           new Tipo("Planta", R.drawable.),
                            new Tipo("Veneno", 1)
                            };
 
