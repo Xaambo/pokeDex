@@ -15,10 +15,10 @@ public class MainActivity extends AppCompatActivity {
     private AdaptadorPokemons adaptador;
 
     private Tipo[] Tipos = new Tipo[] {
-                           new Tipo("Agua", 1),
+                           new Tipo("Agua", R.drawable.Tipo_agua),
                            new Tipo("Fuego", R.drawable.fuego_tipo),
-                           new Tipo("Planta", R.drawable.),
-                           new Tipo("Veneno", 1)
+                           new Tipo("Planta", R.drawable.Tipo_planta),
+                           new Tipo("Veneno", R.drawable.Tipo_veneno)
                            };
 
     private Pokemon[] Pokemons = new Pokemon[]{
