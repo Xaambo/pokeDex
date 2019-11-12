@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Pokemon[] Pokemons = new Pokemon[]{
                                  new Pokemon("Bulbasaur", "Espesura", Tipos[2], Tipos[3], R.drawable.ic_bulbasaur, "No tiene", "Ivysaur"),
-                                 new Pokemon("Inysaur", "Espesura", Tipos[2], Tipos[3], R.drawable.ic_ivysaur, "Bulbasaur", "Venusaur"),
+                                 new Pokemon("Ivysaur", "Espesura", Tipos[2], Tipos[3], R.drawable.ic_ivysaur, "Bulbasaur", "Venusaur"),
                                  new Pokemon("Venusaur", "Espesura", Tipos[2], Tipos[3], R.drawable.ic_venusaur, "Inysaur", "No tiene"),
                                  new Pokemon("Charmander", "Mar llamas", Tipos[1], R.drawable.ic_charmander, "No tiene", "Charmeleon")
                                  };
