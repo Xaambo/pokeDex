@@ -6,10 +6,8 @@ public class Tipo {
     private int foto;
 
     public Tipo(String nom, int foto) {
-
         this.nom = nom;
         this.foto = foto;
-
     }
 
     public String getNom() {
