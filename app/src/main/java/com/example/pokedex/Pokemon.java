@@ -1,6 +1,8 @@
 package com.example.pokedex;
 
-public class Pokemon {
+import java.io.Serializable;
+
+public class Pokemon implements Serializable {
 
     private String nom;
     private String habilidad;
@@ -19,7 +21,6 @@ public class Pokemon {
         this.foto = foto;
         this.anteEvo = anteEvo;
         this.proxEvo = proxEvo;
-
     }
 
     public Pokemon (String nom, String habilidad, Tipo tipo1, int foto, String anteEvo, String proxEvo) {
@@ -31,7 +32,6 @@ public class Pokemon {
         this.foto = foto;
         this.anteEvo = anteEvo;
         this.proxEvo = proxEvo;
-
     }
 
     public String getNom() {

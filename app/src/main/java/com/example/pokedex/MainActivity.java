@@ -55,11 +55,12 @@ public class MainActivity extends AppCompatActivity {
     private void detailPokemon(Pokemon opcioSeleccionada) {
         Intent i = new Intent(this, DetailPokemon.class);
 
-        String nomTipo = opcioSeleccionada.getTipo2().getNom();
-        int fotoTipo = opcioSeleccionada.getTipo2().getFoto();
+        /*String nomTipo = opcioSeleccionada.getTipo2().getNom();
+        int fotoTipo = opcioSeleccionada.getTipo2().getFoto();*/
 
-        i.putExtra("nom", opcioSeleccionada.getNom());
-        i.putExtra("habilitat", opcioSeleccionada.getHabilidad());
+        i.putExtra("pokemon", opcioSeleccionada);
+
+        /*i.putExtra("habilitat", opcioSeleccionada.getHabilidad());
         i.putExtra("tipo1", fotoTipo);
 
         if (nomTipo != null) {
@@ -74,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
 
         i.putExtra("foto", opcioSeleccionada.getFoto());
         i.putExtra("anteEvo", opcioSeleccionada.getAnteEvo());
-        i.putExtra("proxEvo", opcioSeleccionada.getProxEvo());
+        i.putExtra("proxEvo", opcioSeleccionada.getProxEvo());*/
 
         startActivity(i);
     }

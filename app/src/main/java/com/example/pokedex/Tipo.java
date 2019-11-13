@@ -1,6 +1,8 @@
 package com.example.pokedex;
 
-public class Tipo {
+import java.io.Serializable;
+
+public class Tipo implements Serializable {
 
     private String nom;
     private int foto;
