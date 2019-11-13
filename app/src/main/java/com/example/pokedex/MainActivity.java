@@ -66,15 +66,6 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             // Respond to the action bar's Up/Home button
-            case android.R.id.home:
-                finish();
-                return true;
-            case R.id.miEjemplo1:
-                Toast.makeText(this,"MENU EJEMPLO 1", Toast.LENGTH_LONG).show();
-                return true;
-            case R.id.miEjemplo2:
-                Toast.makeText(this,"MENU EJEMPLO 2", Toast.LENGTH_LONG).show();
-                return true;
             case R.id.miEjemplo3:
                 Toast.makeText(this,"MENU EJEMPLO 3", Toast.LENGTH_LONG).show();
                 return true;
