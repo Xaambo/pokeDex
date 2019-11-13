@@ -1,14 +1,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/miEjemplo1"
-        android:icon="@drawable/ic_ejemplo"
-        app:showAsAction="ifRoom"
-        android:title="Ejemplo1">
-    </item>
-    <item
-        android:id="@+id/miEjemplo2"
-        android:icon="@drawable/ic_ejemplo2"
+        android:id="@+id/ic_Joc"
+        android:icon="@drawable/ic_videogame_asset_black"
         app:showAsAction="ifRoom|withText"
         android:title="Ejemplo2">
     </item>

@@ -5,9 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -58,6 +60,26 @@ public class MainActivity extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.layout_menu, menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                finish();
+                return true;
+            case R.id.miEjemplo1:
+                Toast.makeText(this,"MENU EJEMPLO 1", Toast.LENGTH_LONG).show();
+                return true;
+            case R.id.miEjemplo2:
+                Toast.makeText(this,"MENU EJEMPLO 2", Toast.LENGTH_LONG).show();
+                return true;
+            case R.id.miEjemplo3:
+                Toast.makeText(this,"MENU EJEMPLO 3", Toast.LENGTH_LONG).show();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void detailPokemon(Pokemon opcioSeleccionada) {
