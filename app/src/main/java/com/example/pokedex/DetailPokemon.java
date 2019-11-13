@@ -14,12 +14,6 @@ public class DetailPokemon extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
         Pokemon pokemon = (Pokemon) extras.getSerializable("pokemon");
-        /*String habilitat = extras.getString("habilitat");
-        String tipo1 = extras.getString("tipo1");
-        String tipo2 = extras.getString("tipo2");
-        int foto = extras.getInt("foto");
-        String anteEvo = extras.getString("anteEvo");
-        String proxEvo = extras.getString("proxEvo");*/
 
         setTitle(pokemon.getNom());
 

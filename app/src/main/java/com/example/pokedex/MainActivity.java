@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -52,30 +53,17 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.layout_menu, menu);
+        return true;
+    }
+
     private void detailPokemon(Pokemon opcioSeleccionada) {
         Intent i = new Intent(this, DetailPokemon.class);
 
-        /*String nomTipo = opcioSeleccionada.getTipo2().getNom();
-        int fotoTipo = opcioSeleccionada.getTipo2().getFoto();*/
-
         i.putExtra("pokemon", opcioSeleccionada);
-
-        /*i.putExtra("habilitat", opcioSeleccionada.getHabilidad());
-        i.putExtra("tipo1", fotoTipo);
-
-        if (nomTipo != null) {
-
-            i.putExtra("tipo2", fotoTipo);
-
-        } else {
-
-            i.putExtra("tipo2", "");
-
-        }
-
-        i.putExtra("foto", opcioSeleccionada.getFoto());
-        i.putExtra("anteEvo", opcioSeleccionada.getAnteEvo());
-        i.putExtra("proxEvo", opcioSeleccionada.getProxEvo());*/
 
         startActivity(i);
     }
