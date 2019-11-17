@@ -8,45 +8,60 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.Objects;
+
 class AdaptadorPokemons extends ArrayAdapter<Pokemon> {
 
-    public AdaptadorPokemons(Context context, Pokemon[] datos) {
+    private Filtre filtre;
+
+    public AdaptadorPokemons(Context context, Pokemon[] datos, Filtre filtre) {
         super(context, R.layout.layout_pokemon, datos);
+
+        this.filtre = filtre;
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = LayoutInflater.from(getContext());
         View item = inflater.inflate(R.layout.layout_pokemon, null);
 
+        Tipo tipo1;
         Tipo tipo2;
+        String filtreTipo = filtre.getFiltro();
 
         Pokemon pokemon = getItem(position);
 
-        ImageView ivIcon = item.findViewById(R.id.ivIcon);
-        ivIcon.setImageResource(pokemon.getFoto());
-
-        TextView tvNom = item.findViewById(R.id.tvNom);
-        tvNom.setText(pokemon.getNom());
-
-        ImageView ivTipo1 = item.findViewById(R.id.ivTipo1);
-        ivTipo1.setImageResource(pokemon.getTipo1().getFoto());
-
+        tipo1 = pokemon.getTipo1();
         tipo2 = pokemon.getTipo2();
 
-        if (tipo2 != null) {
+        if (tipo1.getNom().equals(filtreTipo) || tipo2.getNom().equals(filtreTipo)) {
 
-            ImageView ivTipo2 = item.findViewById(R.id.ivTipo2);
-            ivTipo2.setImageResource(pokemon.getTipo2().getFoto());
-
+            item.setVisibility(View.GONE);
         } else {
 
-            ImageView ivTipo2 = item.findViewById(R.id.ivTipo2);
-            ivTipo2.setVisibility(View.GONE);
+            TextView tvId = item.findViewById(R.id.tvId);
+            tvId.setText("#" + pokemon.getId());
 
+            ImageView ivIcon = item.findViewById(R.id.ivIcon);
+            ivIcon.setImageResource(pokemon.getFoto());
+
+            TextView tvNom = item.findViewById(R.id.tvNom);
+            tvNom.setText(pokemon.getNom());
+
+            ImageView ivTipo1 = item.findViewById(R.id.ivTipo1);
+            ivTipo1.setImageResource(pokemon.getTipo1().getFoto());
+
+            tipo2 = pokemon.getTipo2();
+
+            if (!tipo2.getNom().equals("")) {
+
+                ImageView ivTipo2 = item.findViewById(R.id.ivTipo2);
+                ivTipo2.setImageResource(pokemon.getTipo2().getFoto());
+            } else {
+
+                ImageView ivTipo2 = item.findViewById(R.id.ivTipo2);
+                ivTipo2.setVisibility(View.GONE);
+            }
         }
-
-        TextView tvHabilitat = item.findViewById(R.id.tvHabilitat);
-        tvHabilitat.setText(pokemon.getHabilidad());
 
         return(item);
     }

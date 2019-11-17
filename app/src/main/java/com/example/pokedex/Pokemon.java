@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class Pokemon implements Serializable {
 
+    private String id;
     private String nom;
     private String habilidad;
     private Tipo tipo1;
@@ -12,8 +13,9 @@ public class Pokemon implements Serializable {
     private String anteEvo;
     private String proxEvo;
 
-    public Pokemon (String nom, String habilidad, Tipo tipo1, Tipo tipo2, int foto, String anteEvo, String proxEvo) {
+    public Pokemon (String id, String nom, String habilidad, Tipo tipo1, Tipo tipo2, int foto, String anteEvo, String proxEvo) {
 
+        this.id = id;
         this.nom = nom;
         this.habilidad = habilidad;
         this.tipo1 = tipo1;
@@ -23,15 +25,12 @@ public class Pokemon implements Serializable {
         this.proxEvo = proxEvo;
     }
 
-    public Pokemon (String nom, String habilidad, Tipo tipo1, int foto, String anteEvo, String proxEvo) {
+    public String getId() {
+        return id;
+    }
 
-        this.nom = nom;
-        this.habilidad = habilidad;
-        this.tipo1 = tipo1;
-        this.tipo2 = null;
-        this.foto = foto;
-        this.anteEvo = anteEvo;
-        this.proxEvo = proxEvo;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getNom() {

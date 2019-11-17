@@ -14,8 +14,10 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     private AdaptadorPokemons adaptador;
+    private Filtre filtre = new Filtre();
 
     private Tipo[] Tipos = new Tipo[] {
+                           new Tipo("", 0),
                            new Tipo("Agua", R.drawable.tipo_agua),
                            new Tipo("Fuego", R.drawable.fuego_tipo),
                            new Tipo("Planta", R.drawable.tipo_planta),
@@ -23,10 +25,10 @@ public class MainActivity extends AppCompatActivity {
                            };
 
     private Pokemon[] Pokemons = new Pokemon[]{
-                                 new Pokemon("Bulbasaur", "Espesura", Tipos[2], Tipos[3], R.drawable.ic_bulbasaur, "No tiene", "Ivysaur"),
-                                 new Pokemon("Ivysaur", "Espesura", Tipos[2], Tipos[3], R.drawable.ic_ivysaur, "Bulbasaur", "Venusaur"),
-                                 new Pokemon("Venusaur", "Espesura", Tipos[2], Tipos[3], R.drawable.ic_venusaur, "Inysaur", "No tiene"),
-                                 new Pokemon("Charmander", "Mar llamas", Tipos[1], R.drawable.ic_charmander, "No tiene", "Charmeleon")
+                                 new Pokemon("1", "Bulbasaur", "Espesura", Tipos[3], Tipos[4], R.drawable.ic_bulbasaur, "No tiene", "Ivysaur"),
+                                 new Pokemon("2","Ivysaur", "Espesura", Tipos[3], Tipos[4], R.drawable.ic_ivysaur, "Bulbasaur", "Venusaur"),
+                                 new Pokemon("3", "Venusaur", "Espesura", Tipos[3], Tipos[4], R.drawable.ic_venusaur, "Inysaur", "No tiene"),
+                                 new Pokemon("4", "Charmander", "Mar llamas", Tipos[2], Tipos[0], R.drawable.ic_charmander, "No tiene", "Charmeleon")
                                  };
 
     @Override
@@ -34,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        AdaptadorPokemons adaptador = new AdaptadorPokemons(this, Pokemons);
+        AdaptadorPokemons adaptador = new AdaptadorPokemons(this, Pokemons, filtre);
 
         setTitle("PokéDex");
 
@@ -66,8 +68,13 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             // Respond to the action bar's Up/Home button
-            case R.id.miEjemplo3:
-                Toast.makeText(this,"MENU EJEMPLO 3", Toast.LENGTH_LONG).show();
+            case R.id.ninguno:
+                Toast.makeText(this,"SIN FILTROOOOOOOOO", Toast.LENGTH_LONG).show();
+                filtre.setFiltro(item.getTitle().toString());
+                return true;
+            case R.id.agua:
+                Toast.makeText(this,"AGUAAAAAAAAAAAAAAA", Toast.LENGTH_LONG).show();
+                filtre.setFiltro(item.getTitle().toString());
                 return true;
         }
         return super.onOptionsItemSelected(item);

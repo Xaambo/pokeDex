@@ -6,6 +6,17 @@
     android:orientation="horizontal"
     android:gravity="center" >
 
+    <TextView
+        android:id="@+id/tvId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:gravity="center_vertical"
+        android:text="#1"
+        android:textColor="#000000"
+        android:textSize="25dp" />
+
     <ImageView
         android:id="@+id/ivIcon"
         android:layout_width="75dp"
@@ -33,23 +44,15 @@
 
         <ImageView
             android:id="@+id/ivTipo1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="80dp"
+            android:layout_height="25dp"
             android:src="@drawable/tipo_planta" />
 
         <ImageView
             android:id="@+id/ivTipo2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="80dp"
+            android:layout_height="25dp"
             android:src="@drawable/tipo_veneno" />
-
-        <TextView
-            android:id="@+id/tvHabilitat"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:text="habilidad"
-            android:textColor="#000000" />
 
     </LinearLayout>
 

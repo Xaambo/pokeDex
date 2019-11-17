@@ -7,8 +7,83 @@
         android:title="Ejemplo2">
     </item>
     <item
-        android:id="@+id/miEjemplo3"
+        android:id="@+id/ninguno"
         app:showAsAction="never"
-        android:title="Ejemplo3">
+        android:title="Sin filtro">
+    </item>
+    <item
+        android:id="@+id/agua"
+        app:showAsAction="never"
+        android:title="Agua">
+    </item>
+    <item
+        android:id="@+id/bicho"
+        app:showAsAction="never"
+        android:title="Bicho">
+    </item>
+    <item
+        android:id="@+id/dragon"
+        app:showAsAction="never"
+        android:title="Dragón">
+    </item>
+    <item
+        android:id="@+id/electrico"
+        app:showAsAction="never"
+        android:title="Eléctrico">
+    </item>
+    <item
+        android:id="@+id/fanstasma"
+        app:showAsAction="never"
+        android:title="Fantasma">
+    </item>
+    <item
+        android:id="@+id/fuego"
+        app:showAsAction="never"
+        android:title="Fuego">
+    </item>
+    <item
+        android:id="@+id/hielo"
+        app:showAsAction="never"
+        android:title="Hielo">
+    </item>
+    <item
+        android:id="@+id/lucha"
+        app:showAsAction="never"
+        android:title="Lucha">
+    </item>
+    <item
+        android:id="@+id/normal"
+        app:showAsAction="never"
+        android:title="Normal">
+    </item>
+    <item
+        android:id="@+id/planta"
+        app:showAsAction="never"
+        android:title="Planta">
+    </item>
+    <item
+        android:id="@+id/psiquico"
+        app:showAsAction="never"
+        android:title="Psíquico">
+    </item>
+    <item
+        android:id="@+id/roca"
+        app:showAsAction="never"
+        android:title="Roca">
+    </item>
+    <item
+        android:id="@+id/tierra"
+        app:showAsAction="never"
+        android:title="Tierra">
+    </item>
+    <item
+        android:id="@+id/veneno"
+        app:showAsAction="never"
+        android:title="Veneno">
+    </item>
+    <item
+        android:id="@+id/volador"
+        app:showAsAction="never"
+        android:title="Volador">
     </item>
 </menu>
