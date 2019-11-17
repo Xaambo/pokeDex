@@ -8,16 +8,13 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 class AdaptadorPokemons extends ArrayAdapter<Pokemon> {
 
-    private Filtre filtre;
-
-    public AdaptadorPokemons(Context context, Pokemon[] datos, Filtre filtre) {
+    public AdaptadorPokemons(Context context, Pokemon[] datos) {
         super(context, R.layout.layout_pokemon, datos);
-
-        this.filtre = filtre;
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -26,17 +23,11 @@ class AdaptadorPokemons extends ArrayAdapter<Pokemon> {
 
         Tipo tipo1;
         Tipo tipo2;
-        String filtreTipo = filtre.getFiltro();
-
         Pokemon pokemon = getItem(position);
 
-        tipo1 = pokemon.getTipo1();
-        tipo2 = pokemon.getTipo2();
+        if (pokemon != null) {
 
-        if (tipo1.getNom().equals(filtreTipo) || tipo2.getNom().equals(filtreTipo)) {
-
-            item.setVisibility(View.GONE);
-        } else {
+            tipo2 = pokemon.getTipo2();
 
             TextView tvId = item.findViewById(R.id.tvId);
             tvId.setText("#" + pokemon.getId());
@@ -50,8 +41,6 @@ class AdaptadorPokemons extends ArrayAdapter<Pokemon> {
             ImageView ivTipo1 = item.findViewById(R.id.ivTipo1);
             ivTipo1.setImageResource(pokemon.getTipo1().getFoto());
 
-            tipo2 = pokemon.getTipo2();
-
             if (!tipo2.getNom().equals("")) {
 
                 ImageView ivTipo2 = item.findViewById(R.id.ivTipo2);
@@ -61,6 +50,8 @@ class AdaptadorPokemons extends ArrayAdapter<Pokemon> {
                 ImageView ivTipo2 = item.findViewById(R.id.ivTipo2);
                 ivTipo2.setVisibility(View.GONE);
             }
+        } else {
+            item.setVisibility(View.GONE);
         }
 
         return(item);

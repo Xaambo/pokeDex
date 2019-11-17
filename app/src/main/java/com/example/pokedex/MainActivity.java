@@ -11,10 +11,11 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     private AdaptadorPokemons adaptador;
-    private Filtre filtre = new Filtre();
 
     private Tipo[] Tipos = new Tipo[] {
                            new Tipo("", 0),
@@ -36,9 +37,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        AdaptadorPokemons adaptador = new AdaptadorPokemons(this, Pokemons, filtre);
-
         setTitle("PokéDex");
+
+        inflator(Pokemons);
+    }
+
+    public void inflator(Pokemon[] Pokemons) {
+
+        AdaptadorPokemons adaptador = new AdaptadorPokemons(this, Pokemons);
 
         // Assignem al listview l'adaptador creat
         ListView lst = findViewById(R.id.lvPokemon);
@@ -66,17 +72,31 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            // Respond to the action bar's Up/Home button
-            case R.id.ninguno:
-                Toast.makeText(this,"SIN FILTROOOOOOOOO", Toast.LENGTH_LONG).show();
-                filtre.setFiltro(item.getTitle().toString());
-                return true;
-            case R.id.agua:
-                Toast.makeText(this,"AGUAAAAAAAAAAAAAAA", Toast.LENGTH_LONG).show();
-                filtre.setFiltro(item.getTitle().toString());
-                return true;
+
+        int comptador = 0;
+        String filtre = item.getTitle().toString();
+        Pokemon[] pokemonsFiltrats = new Pokemon[Pokemons.length - 1];
+
+        // Respond to the action bar's Up/Home button
+        if (item.getItemId() == R.id.ic_Joc) {
+            joc();
+            return true;
         }
+
+        for (int i = 0; i < Pokemons.length; i++) {
+            if (filtre.equals("Sin filtro")) {
+
+                inflator(Pokemons);
+                return true;
+            } else if (Pokemons[i].getTipo1().getNom().equals(filtre) || Pokemons[i].getTipo2().getNom().equals(filtre)) {
+
+                pokemonsFiltrats[comptador] = Pokemons[i];
+                comptador++;
+            }
+        }
+
+        inflator(pokemonsFiltrats);
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -86,5 +106,9 @@ public class MainActivity extends AppCompatActivity {
         i.putExtra("pokemon", opcioSeleccionada);
 
         startActivity(i);
+    }
+
+    private void joc() {
+
     }
 }
