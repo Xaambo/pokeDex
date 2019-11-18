@@ -25,33 +25,28 @@ class AdaptadorPokemons extends ArrayAdapter<Pokemon> {
         Tipo tipo2;
         Pokemon pokemon = getItem(position);
 
-        if (pokemon != null) {
+        tipo2 = pokemon.getTipo2();
 
-            tipo2 = pokemon.getTipo2();
+        TextView tvId = item.findViewById(R.id.tvId);
+        tvId.setText("#" + pokemon.getId());
 
-            TextView tvId = item.findViewById(R.id.tvId);
-            tvId.setText("#" + pokemon.getId());
+        ImageView ivIcon = item.findViewById(R.id.ivIcon);
+        ivIcon.setImageResource(pokemon.getFoto());
 
-            ImageView ivIcon = item.findViewById(R.id.ivIcon);
-            ivIcon.setImageResource(pokemon.getFoto());
+        TextView tvNom = item.findViewById(R.id.tvNom);
+        tvNom.setText(pokemon.getNom());
 
-            TextView tvNom = item.findViewById(R.id.tvNom);
-            tvNom.setText(pokemon.getNom());
+        ImageView ivTipo1 = item.findViewById(R.id.ivTipo1);
+        ivTipo1.setImageResource(pokemon.getTipo1().getFoto());
 
-            ImageView ivTipo1 = item.findViewById(R.id.ivTipo1);
-            ivTipo1.setImageResource(pokemon.getTipo1().getFoto());
+        if (!tipo2.getNom().equals("")) {
 
-            if (!tipo2.getNom().equals("")) {
-
-                ImageView ivTipo2 = item.findViewById(R.id.ivTipo2);
-                ivTipo2.setImageResource(pokemon.getTipo2().getFoto());
-            } else {
-
-                ImageView ivTipo2 = item.findViewById(R.id.ivTipo2);
-                ivTipo2.setVisibility(View.GONE);
-            }
+            ImageView ivTipo2 = item.findViewById(R.id.ivTipo2);
+            ivTipo2.setImageResource(pokemon.getTipo2().getFoto());
         } else {
-            item.setVisibility(View.GONE);
+
+            ImageView ivTipo2 = item.findViewById(R.id.ivTipo2);
+            ivTipo2.setVisibility(View.GONE);
         }
 
         return(item);

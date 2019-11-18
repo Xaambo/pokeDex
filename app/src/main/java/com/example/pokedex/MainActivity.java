@@ -28,9 +28,11 @@ public class MainActivity extends AppCompatActivity {
     private Pokemon[] Pokemons = new Pokemon[]{
                                  new Pokemon("1", "Bulbasaur", "Espesura", Tipos[3], Tipos[4], R.drawable.ic_bulbasaur, "No tiene", "Ivysaur"),
                                  new Pokemon("2","Ivysaur", "Espesura", Tipos[3], Tipos[4], R.drawable.ic_ivysaur, "Bulbasaur", "Venusaur"),
-                                 new Pokemon("3", "Venusaur", "Espesura", Tipos[3], Tipos[4], R.drawable.ic_venusaur, "Inysaur", "No tiene"),
+                                 new Pokemon("3", "Venusaur", "Espesura", Tipos[3], Tipos[4], R.drawable.ic_venusaur, "Ivysaur", "No tiene"),
                                  new Pokemon("4", "Charmander", "Mar llamas", Tipos[2], Tipos[0], R.drawable.ic_charmander, "No tiene", "Charmeleon")
                                  };
+
+    private Pokemon[] PokemonsFiltrats;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,12 +41,9 @@ public class MainActivity extends AppCompatActivity {
 
         setTitle("PokéDex");
 
-        inflator(Pokemons);
-    }
+        filtre();
 
-    public void inflator(Pokemon[] Pokemons) {
-
-        AdaptadorPokemons adaptador = new AdaptadorPokemons(this, Pokemons);
+        adaptador = new AdaptadorPokemons(this, PokemonsFiltrats);
 
         // Assignem al listview l'adaptador creat
         ListView lst = findViewById(R.id.lvPokemon);
@@ -73,9 +72,22 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
+        String filtre = item.getTitle().toString();
+
+        // Respond to the action bar's Up/Home button
+        if (item.getItemId() == R.id.ic_Joc) {
+            joc();
+        } else {
+            filtre();
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    private boolean filtre() {
+
         int comptador = 0;
         String filtre = item.getTitle().toString();
-        Pokemon[] pokemonsFiltrats = new Pokemon[Pokemons.length - 1];
 
         // Respond to the action bar's Up/Home button
         if (item.getItemId() == R.id.ic_Joc) {
@@ -83,21 +95,29 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
 
-        for (int i = 0; i < Pokemons.length; i++) {
-            if (filtre.equals("Sin filtro")) {
+        if (!filtre.equals("Sin filtro")) {
 
-                inflator(Pokemons);
-                return true;
-            } else if (Pokemons[i].getTipo1().getNom().equals(filtre) || Pokemons[i].getTipo2().getNom().equals(filtre)) {
-
-                pokemonsFiltrats[comptador] = Pokemons[i];
-                comptador++;
+            for (int i = 0; i < Pokemons.length; i++) {
+                if (Pokemons[i].getTipo1().getNom().equals(filtre) || Pokemons[i].getTipo2().getNom().equals(filtre)) {
+                    comptador++;
+                }
             }
+
+            PokemonsFiltrats = new Pokemon[comptador];
+            comptador = 0;
+
+            for (int i = 0; i < Pokemons.length; i++) {
+                if (Pokemons[i].getTipo1().getNom().equals(filtre) || Pokemons[i].getTipo2().getNom().equals(filtre)) {
+                    PokemonsFiltrats[comptador] = Pokemons[i];
+                    comptador++;
+                }
+            }
+
+            adaptador.notifyDataSetChanged();
+        } else {
+            PokemonsFiltrats = Pokemons;
         }
-
-        inflator(pokemonsFiltrats);
-
-        return super.onOptionsItemSelected(item);
+        return true;
     }
 
     private void detailPokemon(Pokemon opcioSeleccionada) {
