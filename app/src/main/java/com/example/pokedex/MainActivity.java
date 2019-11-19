@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
         setTitle("PokéDex");
 
-        filtre();
+        filtre("Sin filtro");
 
         adaptador = new AdaptadorPokemons(this, PokemonsFiltrats);
 
@@ -78,23 +78,17 @@ public class MainActivity extends AppCompatActivity {
         if (item.getItemId() == R.id.ic_Joc) {
             joc();
         } else {
-            filtre();
+            filtre(filtre);
         }
 
         return super.onOptionsItemSelected(item);
     }
 
-    private boolean filtre() {
+    private boolean filtre(String filtre) {
 
         int comptador = 0;
-        String filtre = item.getTitle().toString();
 
         // Respond to the action bar's Up/Home button
-        if (item.getItemId() == R.id.ic_Joc) {
-            joc();
-            return true;
-        }
-
         if (!filtre.equals("Sin filtro")) {
 
             for (int i = 0; i < Pokemons.length; i++) {
