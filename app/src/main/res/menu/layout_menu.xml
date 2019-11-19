@@ -4,7 +4,7 @@
         android:id="@+id/ic_Joc"
         android:icon="@drawable/ic_videogame_asset_black"
         app:showAsAction="ifRoom|withText"
-        android:title="Ejemplo2">
+        android:title="Joc">
     </item>
     <item
         android:id="@+id/ninguno"

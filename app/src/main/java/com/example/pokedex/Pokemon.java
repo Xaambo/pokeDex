@@ -6,18 +6,16 @@ public class Pokemon implements Serializable {
 
     private String id;
     private String nom;
-    private String habilidad;
     private Tipo tipo1;
     private Tipo tipo2;
     private int foto;
     private String anteEvo;
     private String proxEvo;
 
-    public Pokemon (String id, String nom, String habilidad, Tipo tipo1, Tipo tipo2, int foto, String anteEvo, String proxEvo) {
+    public Pokemon (String id, String nom, Tipo tipo1, Tipo tipo2, int foto, String anteEvo, String proxEvo) {
 
         this.id = id;
         this.nom = nom;
-        this.habilidad = habilidad;
         this.tipo1 = tipo1;
         this.tipo2 = tipo2;
         this.foto = foto;
@@ -39,14 +37,6 @@ public class Pokemon implements Serializable {
 
     public void setNom(String nom) {
         this.nom = nom;
-    }
-
-    public String getHabilidad() {
-        return habilidad;
-    }
-
-    public void setHabilidad(String habilidad) {
-        this.habilidad = habilidad;
     }
 
     public Tipo getTipo1() {

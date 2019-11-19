@@ -17,6 +17,10 @@ class AdaptadorPokemons extends ArrayAdapter<Pokemon> {
         super(context, R.layout.layout_pokemon, datos);
     }
 
+    public AdaptadorPokemons(Context context, ArrayList<Pokemon> datos) {
+        super(context, R.layout.layout_pokemon, datos);
+    }
+
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = LayoutInflater.from(getContext());
         View item = inflater.inflate(R.layout.layout_pokemon, null);
