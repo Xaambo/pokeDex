@@ -25,14 +25,15 @@ class AdaptadorPokemons extends ArrayAdapter<Pokemon> {
         LayoutInflater inflater = LayoutInflater.from(getContext());
         View item = inflater.inflate(R.layout.layout_pokemon, null);
 
+        Pokemon pokemon = getItem(position);
         Tipo tipo1;
         Tipo tipo2;
-        Pokemon pokemon = getItem(position);
+        String id = "#" + pokemon.getId();
 
         tipo2 = pokemon.getTipo2();
 
         TextView tvId = item.findViewById(R.id.tvId);
-        tvId.setText("#" + pokemon.getId());
+        tvId.setText(id);
 
         ImageView ivIcon = item.findViewById(R.id.ivIcon);
         ivIcon.setImageResource(pokemon.getFoto());
