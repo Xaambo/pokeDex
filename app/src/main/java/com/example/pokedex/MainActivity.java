@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         ListPokemon.add(new Pokemon("1", "Bulbasaur", Tipos[10], Tipos[14], R.drawable.ic_bulbasaur, "No tiene", "Ivysaur"));
         ListPokemon.add(new Pokemon("2","Ivysaur", Tipos[10], Tipos[14], R.drawable.ic_ivysaur, "Bulbasaur", "Venusaur"));
         ListPokemon.add(new Pokemon("3", "Venusaur", Tipos[10], Tipos[14], R.drawable.ic_venusaur, "Ivysaur", "No tiene"));
-        ListPokemon.add(new Pokemon("4", "Charmander", Tipos[6], Tipos[0], R.drawable.ic_charmander, "No tiene", "Charmeleon"));
+        ListPokemon.add(new Pokemon("4", "Charmander", Tipos[6], Tipos[0], R.drawable.abra_seeklogo_com, "No tiene", "Charmeleon"));
         ListPokemon.add(new Pokemon("5", "Charmeleon", Tipos[6], Tipos[0], R.drawable.ic_charmander, "Charmander", "Charizard"));
         ListPokemon.add(new Pokemon("6", "Charizard",  Tipos[6], Tipos[15], R.drawable.ic_charmander, "", ""));
         ListPokemon.add(new Pokemon("7", "Squirtle",  Tipos[1], Tipos[0], R.drawable.ic_charmander, "", ""));
