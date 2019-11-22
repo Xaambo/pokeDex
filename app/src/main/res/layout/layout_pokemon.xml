@@ -23,7 +23,7 @@
         android:layout_height="75dp"
         android:paddingLeft="6dp"
         android:paddingRight="6dp"
-        android:src="@drawable/ic_bulbasaur" />
+        android:src="@drawable/blastoise_seeklogo_com" />
 
     <TextView
         android:id="@+id/tvNom"
