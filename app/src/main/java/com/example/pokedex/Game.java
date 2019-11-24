@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -22,14 +23,14 @@ public class Game extends AppCompatActivity {
 
         int random = (int) (Math.random() * (pokemons.size()));
         int foto;
-        String nom;
+        final String nom;
 
         ArrayList<Button> opcions = new ArrayList<>();
 
-        Button btnOpcio1 = findViewById(R.id.btnOpcio1);
-        Button btnOpcio2 = findViewById(R.id.btnOpcio2);
-        Button btnOpcio3 = findViewById(R.id.btnOpcio3);
-        Button btnOpcio4 = findViewById(R.id.btnOpcio4);
+        final Button btnOpcio1 = findViewById(R.id.btnOpcio1);
+        final Button btnOpcio2 = findViewById(R.id.btnOpcio2);
+        final Button btnOpcio3 = findViewById(R.id.btnOpcio3);
+        final Button btnOpcio4 = findViewById(R.id.btnOpcio4);
 
         opcions.add(btnOpcio1);
         opcions.add(btnOpcio2);
@@ -42,9 +43,11 @@ public class Game extends AppCompatActivity {
         nom = pokemon.getNom();
         foto = pokemon.getFoto();
 
-        ImageView ivPokemon = findViewById(R.id.ivGPokemon);
+        final ImageView ivPokemon = findViewById(R.id.ivGPokemon);
         ivPokemon.setImageResource(foto);
         ivPokemon.setColorFilter(ContextCompat.getColor(this, R.color.black), android.graphics.PorterDuff.Mode.MULTIPLY);
+
+        final TextView tvGPuntuacio = findViewById(R.id.tvGPuntuacio);
 
         random = (int) (Math.random() * opcions.size());
 
@@ -64,31 +67,75 @@ public class Game extends AppCompatActivity {
         btnOpcio1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String opcio = btnOpcio1.getText().toString();
+                boolean victoria = false;
 
+                victoria = comparar(nom, opcio, victoria);
+
+                if (victoria) {
+                    ivPokemon.setColorFilter(null);
+                } else {
+                    tvGPuntuacio.setText("GAME OVER");
+                }
             }
         });
 
         btnOpcio2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String opcio = btnOpcio2.getText().toString();
+                boolean victoria = false;
 
+                victoria = comparar(nom, opcio, victoria);
+
+                if (victoria) {
+                    ivPokemon.setColorFilter(null);
+
+                } else {
+                    tvGPuntuacio.setText("GAME OVER");
+                }
             }
         });
 
         btnOpcio3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String opcio = btnOpcio3.getText().toString();
+                boolean victoria = false;
 
+                victoria = comparar(nom, opcio, victoria);
+
+                if (victoria) {
+                    ivPokemon.setColorFilter(null);
+                } else {
+                    tvGPuntuacio.setText("GAME OVER");
+                }
             }
         });
 
         btnOpcio4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String opcio = btnOpcio4.getText().toString();
+                boolean victoria = false;
 
+                victoria = comparar(nom, opcio, victoria);
+
+                if (victoria) {
+                    ivPokemon.setColorFilter(null);
+                } else {
+                    tvGPuntuacio.setText("GAME OVER");
+                }
             }
         });
+    }
 
+    private boolean comparar(String nom, String opcio, boolean victoria) {
 
+        if (nom.equals(opcio)) {
+            victoria = true;
+        }
+
+        return victoria;
     }
 }
