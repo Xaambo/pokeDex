@@ -14,16 +14,14 @@ import java.util.ArrayList;
 
 public class Game extends AppCompatActivity {
 
+    int contador = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_game);
 
         final ArrayList<Pokemon> pokemons = (ArrayList<Pokemon>) getIntent().getSerializableExtra("pokemons");
-
-        int random = (int) (Math.random() * (pokemons.size()));
-        int foto;
-        final String nom;
 
         ArrayList<Button> opcions = new ArrayList<>();
 
@@ -36,6 +34,10 @@ public class Game extends AppCompatActivity {
         opcions.add(btnOpcio2);
         opcions.add(btnOpcio3);
         opcions.add(btnOpcio4);
+
+        int random = (int) (Math.random() * (pokemons.size()));
+        int foto;
+        final String nom;
 
         Pokemon pokemon = pokemons.get(random);
         Pokemon pokemonFalso;
@@ -74,8 +76,11 @@ public class Game extends AppCompatActivity {
 
                 if (victoria) {
                     ivPokemon.setColorFilter(null);
+                    contador++;
+                    tvGPuntuacio.setText("Puntuación: " + String.valueOf(contador));
                 } else {
                     tvGPuntuacio.setText("GAME OVER");
+                    finish();
                 }
             }
         });
@@ -90,9 +95,11 @@ public class Game extends AppCompatActivity {
 
                 if (victoria) {
                     ivPokemon.setColorFilter(null);
-
+                    contador++;
+                    tvGPuntuacio.setText("Puntuación: " + String.valueOf(contador));
                 } else {
                     tvGPuntuacio.setText("GAME OVER");
+                    finish();
                 }
             }
         });
@@ -107,8 +114,11 @@ public class Game extends AppCompatActivity {
 
                 if (victoria) {
                     ivPokemon.setColorFilter(null);
+                    contador++;
+                    tvGPuntuacio.setText("Puntuación: " + String.valueOf(contador));
                 } else {
                     tvGPuntuacio.setText("GAME OVER");
+                    finish();
                 }
             }
         });
@@ -123,11 +133,18 @@ public class Game extends AppCompatActivity {
 
                 if (victoria) {
                     ivPokemon.setColorFilter(null);
+                    contador++;
+                    tvGPuntuacio.setText("Puntuación: " + String.valueOf(contador));
                 } else {
                     tvGPuntuacio.setText("GAME OVER");
+                    finish();
                 }
             }
         });
+    }
+
+    private void setJoc() {
+
     }
 
     private boolean comparar(String nom, String opcio, boolean victoria) {
