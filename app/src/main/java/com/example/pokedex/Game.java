@@ -143,8 +143,38 @@ public class Game extends AppCompatActivity {
         });
     }
 
-    private void setJoc() {
+    private void setJoc(ArrayList<Pokemon> pokemons, ArrayList<Button> opcions) {
 
+        int random = (int) (Math.random() * (pokemons.size()));
+        int foto;
+        final String nom;
+
+        Pokemon pokemon = pokemons.get(random);
+        Pokemon pokemonFalso;
+
+        nom = pokemon.getNom();
+        foto = pokemon.getFoto();
+
+        final ImageView ivPokemon = findViewById(R.id.ivGPokemon);
+        ivPokemon.setImageResource(foto);
+        ivPokemon.setColorFilter(ContextCompat.getColor(this, R.color.black), android.graphics.PorterDuff.Mode.MULTIPLY);
+
+        final TextView tvGPuntuacio = findViewById(R.id.tvGPuntuacio);
+
+        random = (int) (Math.random() * opcions.size());
+
+        opcions.get(random).setText(nom);
+
+        opcions.remove(random);
+
+        for (int i = 0; i < opcions.size(); i++) {
+            random = (int) (Math.random() * (pokemons.size()));
+            pokemonFalso = pokemons.get(random);
+
+            if (foto != pokemonFalso.getFoto()) {
+                opcions.get(i).setText(pokemons.get(random).getNom());
+            }
+        }
     }
 
     private boolean comparar(String nom, String opcio, boolean victoria) {
