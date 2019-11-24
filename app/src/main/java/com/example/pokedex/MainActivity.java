@@ -3,7 +3,6 @@ package com.example.pokedex;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -320,6 +319,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void joc() {
+        Intent i = new Intent(this, Game.class);
 
+        i.putExtra("pokemons", ListPokemon);
+
+        startActivity(i);
     }
 }
