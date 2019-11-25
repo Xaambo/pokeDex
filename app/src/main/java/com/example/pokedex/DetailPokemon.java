@@ -50,7 +50,7 @@ public class DetailPokemon extends AppCompatActivity {
         btnWeb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                verifiarPermisosInternet();
+                /*verifiarPermisosInternet();*/
 
                 String url = "https://www.wikidex.net/wiki/" + pokemon.getNom();
 
@@ -61,9 +61,25 @@ public class DetailPokemon extends AppCompatActivity {
             }
         });
 
+        Button btnShare = findViewById(R.id.btnShare);
+        btnShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            Intent i = new Intent();
+
+            i.setAction(Intent.ACTION_SEND);
+
+            String dadesPokemon = "PokéDex ID: #" + pokemon.getId() + "\nNom: " + pokemon.getNom() + "\nTipos: " + pokemon.getTipo1().getNom() + " i " + pokemon.getTipo2().getNom();
+
+            i.putExtra(Intent.EXTRA_TEXT, dadesPokemon);
+            i.setType("text/plain");
+            startActivity(i);
+            }
+        });
+
     }
 
-    private void verifiarPermisosInternet() {
+    /*private void verifiarPermisosInternet() {
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.INTERNET)
                 != PackageManager.PERMISSION_GRANTED) {
@@ -88,6 +104,5 @@ public class DetailPokemon extends AppCompatActivity {
         } else {
             // Permission has already been granted
         }
-
-    }
+    }*/
 }

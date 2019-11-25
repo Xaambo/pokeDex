@@ -1,6 +1,5 @@
 package com.example.pokedex;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +14,15 @@ import java.util.ArrayList;
 public class Game extends AppCompatActivity {
 
     int contador = 0;
+    int max = 0;
+    String nom;
+    ImageView ivPokemon;
+    TextView tvGPuntuacio;
+    TextView tvGMaxPuntuacio;
+    Button btnOpcio1;
+    Button btnOpcio2;
+    Button btnOpcio3;
+    Button btnOpcio4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,48 +31,14 @@ public class Game extends AppCompatActivity {
 
         final ArrayList<Pokemon> pokemons = (ArrayList<Pokemon>) getIntent().getSerializableExtra("pokemons");
 
-        ArrayList<Button> opcions = new ArrayList<>();
+        final ArrayList<Button> opcions = new ArrayList<>();
 
-        final Button btnOpcio1 = findViewById(R.id.btnOpcio1);
-        final Button btnOpcio2 = findViewById(R.id.btnOpcio2);
-        final Button btnOpcio3 = findViewById(R.id.btnOpcio3);
-        final Button btnOpcio4 = findViewById(R.id.btnOpcio4);
+        btnOpcio1 = findViewById(R.id.btnOpcio1);
+        btnOpcio2 = findViewById(R.id.btnOpcio2);
+        btnOpcio3 = findViewById(R.id.btnOpcio3);
+        btnOpcio4 = findViewById(R.id.btnOpcio4);
 
-        opcions.add(btnOpcio1);
-        opcions.add(btnOpcio2);
-        opcions.add(btnOpcio3);
-        opcions.add(btnOpcio4);
-
-        int random = (int) (Math.random() * (pokemons.size()));
-        int foto;
-        final String nom;
-
-        Pokemon pokemon = pokemons.get(random);
-        Pokemon pokemonFalso;
-
-        nom = pokemon.getNom();
-        foto = pokemon.getFoto();
-
-        final ImageView ivPokemon = findViewById(R.id.ivGPokemon);
-        ivPokemon.setImageResource(foto);
-        ivPokemon.setColorFilter(ContextCompat.getColor(this, R.color.black), android.graphics.PorterDuff.Mode.MULTIPLY);
-
-        final TextView tvGPuntuacio = findViewById(R.id.tvGPuntuacio);
-
-        random = (int) (Math.random() * opcions.size());
-
-        opcions.get(random).setText(nom);
-
-        opcions.remove(random);
-
-        for (int i = 0; i < opcions.size(); i++) {
-            random = (int) (Math.random() * (pokemons.size()));
-            pokemonFalso = pokemons.get(random);
-
-            if (foto != pokemonFalso.getFoto()) {
-                opcions.get(i).setText(pokemons.get(random).getNom());
-            }
-        }
+        setJoc(pokemons, opcions);
 
         btnOpcio1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,8 +52,10 @@ public class Game extends AppCompatActivity {
                     ivPokemon.setColorFilter(null);
                     contador++;
                     tvGPuntuacio.setText("Puntuación: " + String.valueOf(contador));
+                    setJoc(pokemons, opcions);
                 } else {
                     tvGPuntuacio.setText("GAME OVER");
+                    setMax();
                     finish();
                 }
             }
@@ -97,8 +73,10 @@ public class Game extends AppCompatActivity {
                     ivPokemon.setColorFilter(null);
                     contador++;
                     tvGPuntuacio.setText("Puntuación: " + String.valueOf(contador));
+                    setJoc(pokemons, opcions);
                 } else {
                     tvGPuntuacio.setText("GAME OVER");
+                    setMax();
                     finish();
                 }
             }
@@ -116,8 +94,10 @@ public class Game extends AppCompatActivity {
                     ivPokemon.setColorFilter(null);
                     contador++;
                     tvGPuntuacio.setText("Puntuación: " + String.valueOf(contador));
+                    setJoc(pokemons, opcions);
                 } else {
                     tvGPuntuacio.setText("GAME OVER");
+                    setMax();
                     finish();
                 }
             }
@@ -135,8 +115,10 @@ public class Game extends AppCompatActivity {
                     ivPokemon.setColorFilter(null);
                     contador++;
                     tvGPuntuacio.setText("Puntuación: " + String.valueOf(contador));
+                    setJoc(pokemons, opcions);
                 } else {
                     tvGPuntuacio.setText("GAME OVER");
+                    setMax();
                     finish();
                 }
             }
@@ -147,7 +129,13 @@ public class Game extends AppCompatActivity {
 
         int random = (int) (Math.random() * (pokemons.size()));
         int foto;
-        final String nom;
+
+        opcions.clear();
+
+        opcions.add(btnOpcio1);
+        opcions.add(btnOpcio2);
+        opcions.add(btnOpcio3);
+        opcions.add(btnOpcio4);
 
         Pokemon pokemon = pokemons.get(random);
         Pokemon pokemonFalso;
@@ -155,11 +143,12 @@ public class Game extends AppCompatActivity {
         nom = pokemon.getNom();
         foto = pokemon.getFoto();
 
-        final ImageView ivPokemon = findViewById(R.id.ivGPokemon);
+        ivPokemon = findViewById(R.id.ivGPokemon);
         ivPokemon.setImageResource(foto);
         ivPokemon.setColorFilter(ContextCompat.getColor(this, R.color.black), android.graphics.PorterDuff.Mode.MULTIPLY);
 
-        final TextView tvGPuntuacio = findViewById(R.id.tvGPuntuacio);
+        tvGPuntuacio = findViewById(R.id.tvGPuntuacio);
+        tvGMaxPuntuacio = findViewById(R.id.tvGMax);
 
         random = (int) (Math.random() * opcions.size());
 
@@ -171,9 +160,16 @@ public class Game extends AppCompatActivity {
             random = (int) (Math.random() * (pokemons.size()));
             pokemonFalso = pokemons.get(random);
 
-            if (foto != pokemonFalso.getFoto()) {
+            if (!nom.equals(pokemonFalso.getNom())) {
                 opcions.get(i).setText(pokemons.get(random).getNom());
             }
+        }
+    }
+
+    private void setMax() {
+        if (contador > max) {
+            max = contador;
+            tvGMaxPuntuacio.setText("Max: " + String.valueOf(max));
         }
     }
 
