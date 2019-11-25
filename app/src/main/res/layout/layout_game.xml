@@ -13,6 +13,7 @@
             android:id="@+id/tvGMax"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:text="Max: 0"
             android:textSize="35dp" />
 
@@ -20,6 +21,7 @@
             android:id="@+id/tvGPuntuacio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:gravity="right"
             android:text="Puntuación: 0"
             android:textSize="35dp" />

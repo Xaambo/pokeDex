@@ -1,5 +1,7 @@
 package com.example.pokedex;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -23,6 +25,8 @@ public class Game extends AppCompatActivity {
     Button btnOpcio2;
     Button btnOpcio3;
     Button btnOpcio4;
+    SharedPreferences preferences;
+    SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,12 +37,17 @@ public class Game extends AppCompatActivity {
 
         final ArrayList<Button> opcions = new ArrayList<>();
 
+        preferences = getSharedPreferences("PuntuacionMax", Context.MODE_PRIVATE);
+        editor = preferences.edit();
+
         btnOpcio1 = findViewById(R.id.btnOpcio1);
         btnOpcio2 = findViewById(R.id.btnOpcio2);
         btnOpcio3 = findViewById(R.id.btnOpcio3);
         btnOpcio4 = findViewById(R.id.btnOpcio4);
 
         setJoc(pokemons, opcions);
+
+        tvGMaxPuntuacio.setText("Max: " + preferences.getInt("Max", 0));
 
         btnOpcio1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,9 +58,7 @@ public class Game extends AppCompatActivity {
                 victoria = comparar(nom, opcio, victoria);
 
                 if (victoria) {
-                    ivPokemon.setColorFilter(null);
-                    contador++;
-                    tvGPuntuacio.setText("Puntuación: " + String.valueOf(contador));
+                    esVictoria();
                     setJoc(pokemons, opcions);
                 } else {
                     tvGPuntuacio.setText("GAME OVER");
@@ -70,9 +77,7 @@ public class Game extends AppCompatActivity {
                 victoria = comparar(nom, opcio, victoria);
 
                 if (victoria) {
-                    ivPokemon.setColorFilter(null);
-                    contador++;
-                    tvGPuntuacio.setText("Puntuación: " + String.valueOf(contador));
+                    esVictoria();
                     setJoc(pokemons, opcions);
                 } else {
                     tvGPuntuacio.setText("GAME OVER");
@@ -91,9 +96,7 @@ public class Game extends AppCompatActivity {
                 victoria = comparar(nom, opcio, victoria);
 
                 if (victoria) {
-                    ivPokemon.setColorFilter(null);
-                    contador++;
-                    tvGPuntuacio.setText("Puntuación: " + String.valueOf(contador));
+                    esVictoria();
                     setJoc(pokemons, opcions);
                 } else {
                     tvGPuntuacio.setText("GAME OVER");
@@ -112,9 +115,7 @@ public class Game extends AppCompatActivity {
                 victoria = comparar(nom, opcio, victoria);
 
                 if (victoria) {
-                    ivPokemon.setColorFilter(null);
-                    contador++;
-                    tvGPuntuacio.setText("Puntuación: " + String.valueOf(contador));
+                    esVictoria();
                     setJoc(pokemons, opcions);
                 } else {
                     tvGPuntuacio.setText("GAME OVER");
@@ -166,10 +167,17 @@ public class Game extends AppCompatActivity {
         }
     }
 
+    private void esVictoria() {
+        ivPokemon.setColorFilter(null);
+        contador++;
+        tvGPuntuacio.setText("Puntuación: " + String.valueOf(contador));
+    }
+
     private void setMax() {
         if (contador > max) {
             max = contador;
-            tvGMaxPuntuacio.setText("Max: " + String.valueOf(max));
+            editor.putInt("Max", max);
+            editor.apply();
         }
     }
 
