@@ -4,11 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.View;
-
-/**
- * Created by AbhiAndroid
- */
 
 public class SplashScreen extends Activity {
 
@@ -28,6 +23,5 @@ public class SplashScreen extends Activity {
                 finish();
             }
         },2000);
-
     }
 }
