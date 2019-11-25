@@ -77,6 +77,13 @@ public class DetailPokemon extends AppCompatActivity {
             }
         });
 
+        Button btnAtras = findViewById(R.id.btnAtras);
+        btnAtras.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     /*private void verifiarPermisosInternet() {

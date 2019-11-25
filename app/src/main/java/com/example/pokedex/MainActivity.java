@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         ListPokemon.add(new Pokemon("8", "Wartortle",  Tipos[1], Tipos[0], R.drawable.wartortle_seeklogo_com, "", ""));
         ListPokemon.add(new Pokemon("9", "Blastoise",  Tipos[1], Tipos[0], R.drawable.blastoise_seeklogo_com, "", ""));
         ListPokemon.add(new Pokemon("10", "Caterpie",  Tipos[2], Tipos[0], R.drawable.caterpie_seeklogo_com, "", ""));
-        ListPokemon.add(new Pokemon("11", "Metapod",  Tipos[2], Tipos[0], R.drawable.charizard_seeklogo_com, "", ""));
+        ListPokemon.add(new Pokemon("11", "Metapod",  Tipos[2], Tipos[0], R.drawable.metapod_seeklogo_com, "", ""));
         ListPokemon.add(new Pokemon("12", "Butterfree",  Tipos[2], Tipos[15], R.drawable.butterfree_seeklogo_com, "", ""));
         ListPokemon.add(new Pokemon("13", "Weedle",  Tipos[2], Tipos[14], R.drawable.weedle_seeklogo_com, "", ""));
         ListPokemon.add(new Pokemon("14", "Kakuna",  Tipos[2], Tipos[14], R.drawable.kakuna_seeklogo_com, "", ""));
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
         ListPokemon.add(new Pokemon("22", "Fearow",  Tipos[9], Tipos[15], R.drawable.fearow_seeklogo_com, "", ""));
         ListPokemon.add(new Pokemon("23", "Ekans",  Tipos[14], Tipos[0], R.drawable.ekans_seeklogo_com, "", ""));
         ListPokemon.add(new Pokemon("24", "Arbok",  Tipos[14], Tipos[0], R.drawable.arbok_seeklogo_com, "", ""));
-        ListPokemon.add(new Pokemon("25", "Pikachu",  Tipos[4], Tipos[0], R.drawable.pikachu_seeklogo_com, "", ""));
+        ListPokemon.add(new Pokemon("25", "Pikachu",  Tipos[4], Tipos[0], R.drawable.pikachu_pokemon_seeklogo_com, "", ""));
         ListPokemon.add(new Pokemon("26", "Raichu",  Tipos[4], Tipos[0], R.drawable.raichu_seeklogo_com, "", ""));
         ListPokemon.add(new Pokemon("27", "Sandshrew",  Tipos[13], Tipos[0], R.drawable.sandshrew_seeklogo_com, "", ""));
         ListPokemon.add(new Pokemon("28", "Sandslash",  Tipos[13], Tipos[0], R.drawable.sandslash_seeklogo_com, "", ""));
@@ -197,16 +197,16 @@ public class MainActivity extends AppCompatActivity {
         ListPokemon.add(new Pokemon("140", "Kabuto",  Tipos[12], Tipos[1], R.drawable.kabuto_seeklogo_com, "", ""));
         ListPokemon.add(new Pokemon("141", "Kabutops",  Tipos[12], Tipos[1], R.drawable.kabutops_seeklogo_com, "", ""));
         ListPokemon.add(new Pokemon("142", "Aerodactyl",  Tipos[12], Tipos[15], R.drawable.aerodactyl_seeklogo_com, "", ""));
-        ListPokemon.add(new Pokemon("143", "Snorlax",  Tipos[9], Tipos[0], R.drawable.aerodactyl_seeklogo_com, "", ""));
+        ListPokemon.add(new Pokemon("143", "Snorlax",  Tipos[9], Tipos[0], R.drawable.snorlax_seeklogo_com, "", ""));
         ListPokemon.add(new Pokemon("144", "Articuno",  Tipos[7], Tipos[15], R.drawable.articuno_seeklogo_com, "", ""));
         ListPokemon.add(new Pokemon("145", "Zapdos",  Tipos[4], Tipos[15], R.drawable.zapdos_seeklogo_com, "", ""));
         ListPokemon.add(new Pokemon("146", "Moltres",  Tipos[6], Tipos[15], R.drawable.moltres_seeklogo_com, "", ""));
-        ListPokemon.add(new Pokemon("147", "Dratini",  Tipos[3], Tipos[15], R.drawable.charizard_seeklogo_com, "", ""));
+        ListPokemon.add(new Pokemon("147", "Dratini",  Tipos[3], Tipos[15], R.drawable.dratini_seeklogo_com, "", ""));
         ListPokemon.add(new Pokemon("148", "Dragonair",  Tipos[3], Tipos[15], R.drawable.dragonair_seeklogo_com, "", ""));
         ListPokemon.add(new Pokemon("149", "Dragonite",  Tipos[3], Tipos[15], R.drawable.dragonite_seeklogo_com, "", ""));
         ListPokemon.add(new Pokemon("150", "Mewtwo",  Tipos[11], Tipos[0], R.drawable.mewtwo_seeklogo_com, "", ""));
         ListPokemon.add(new Pokemon("151", "Mew",  Tipos[11], Tipos[0], R.drawable.mew_seeklogo_com, "", ""));
-        
+
         /*filtre("Sin filtro");*/
         ListPokemonFiltrat.addAll(ListPokemon);
 

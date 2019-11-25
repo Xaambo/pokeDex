@@ -13,7 +13,8 @@
             android:name=".DetailPokemon"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Game" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity" />
+        <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
