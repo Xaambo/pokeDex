@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class Game extends AppCompatActivity {
 
     int contador = 0;
-    int max = 0;
+    int max;
     String nom;
     ImageView ivPokemon;
     TextView tvGPuntuacio;
@@ -52,7 +52,9 @@ public class Game extends AppCompatActivity {
 
         setJoc(pokemons, opcions);
 
-        tvGMaxPuntuacio.setText("Max: " + preferences.getInt("Max", 0));
+        max = preferences.getInt("PuntuacionMax", 0);
+
+        tvGMaxPuntuacio.setText("Max: " + max);
 
         btnOpcio1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -129,6 +131,8 @@ public class Game extends AppCompatActivity {
                 }
             }
         });
+
+        editor.apply();
     }
 
     private void setJoc(ArrayList<Pokemon> pokemons, ArrayList<Button> opcions) {
@@ -181,7 +185,7 @@ public class Game extends AppCompatActivity {
     private void setMax() {
         if (contador > max) {
             max = contador;
-            editor.putInt("Max", max);
+            editor.putInt("PuntuacionMax", max);
             editor.apply();
         }
     }
@@ -200,6 +204,7 @@ public class Game extends AppCompatActivity {
         switch (item.getItemId()) {
             // Respond to the action bar's Up/Home button
             case android.R.id.home:
+                setMax();
                 finish();
                 return true;
         }
